@@ -1,7 +1,7 @@
 ##
-## $Rev: 92 $
-## $Release: 0.7.1 $
-## copyright(c) 2005-2008 kuwata-lab all rights reserved.
+## $Rev$
+## $Release: 0.7.2 $
+## copyright(c) 2005-2010 kuwata-lab all rights reserved.
 ##
 ---
 name:   sequence1
@@ -905,13 +905,13 @@ input: |
 #
 expected*:
   ruby: |
-    {"type"=>"seq",
-     "sequence"=>
+    {"sequence"=>
       [{"type"=>"map",
         "mapping"=>
          {"name"=>{"type"=>"str"},
-          "post"=>{"type"=>"str", "enum"=>["exective", "manager", "clerk"]},
-          "supervisor"=>{...}}}]}
+          "post"=>{"enum"=>["exective", "manager", "clerk"], "type"=>"str"},
+          "supervisor"=>{...}}}],
+     "type"=>"seq"}
   java: |
     {"sequence"=>[{"mapping"=>{"name"=>{"type"=>"str"}, "post"=>{"enum"=>["exective", "manager", "clerk"], "type"=>"str"}, "supervisor"=>{...}}, "type"=>"map"}], "type"=>"seq"}
 ##
@@ -1148,7 +1148,7 @@ input: |
   - :sym
 expected*:
   ruby: |
-    ["abc", 123, 3.14, true, false, true, false, nil, nil, "123", "456", #<Date: 2005-01-01 (4906743/2,0,2299161)>, :sym]
+    ["abc", 123, 3.14, true, false, true, false, nil, nil, "123", "456", #<Date: 4906743/2,0,2299161>, :sym]
 #  ruby: |
 #    ["abc",
 #     123,
@@ -1200,8 +1200,7 @@ expected*:
      {nil=>nil},
      {"123"=>"123"},
      {"456"=>"456"},
-     {#<Date: 2005-01-01 (4906743/2,0,2299161)>=>
-       #<Date: 2005-01-01 (4906743/2,0,2299161)>},
+     {#<Date: 4906743/2,0,2299161>=>#<Date: 4906743/2,0,2299161>},
      {:sym=>:sym}]
   java: |
     [{"abc"=>"ABC"}, {123=>123}, {3.14=>3.14}, {true=>true}, {false=>false}, {true=>true}, {false=>false}, "~ : ~", {nil=>nil}, {"123"=>"123"}, {"456"=>"456"}, {Tue Feb 01 00:00:00 JST 2005=>Tue Feb 01 00:00:00 JST 2005}, {":sym"=>":sym"}]

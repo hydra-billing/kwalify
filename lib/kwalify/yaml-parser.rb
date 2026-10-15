@@ -1,7 +1,7 @@
 ###
-### $Rev: 81 $
-### $Release: 0.7.1 $
-### copyright(c) 2005-2008 kuwata-lab all rights reserved.
+### $Rev$
+### $Release: 0.7.2 $
+### copyright(c) 2005-2010 kuwata-lab all rights reserved.
 ###
 
 require 'kwalify/messages'
@@ -34,7 +34,7 @@ module Kwalify
 
 
     def initialize(yaml_str)
-      @lines = yaml_str.lines.to_a()
+      @lines = yaml_str.to_a()
       @line  = nil
       @linenum = 0
       @anchors = {}

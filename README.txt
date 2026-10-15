@@ -1,8 +1,8 @@
 = README
 
-release::	0.7.1
-lastupdate::	$Date: 2008-01-28 15:27:12 +0900 (Mon, 28 Jan 2008) $
-copyright::	copyright(c) 2005-2008 kuwata-lab all rights reserved.
+release::	0.7.2
+lastupdate::	$Date$
+copyright::	copyright(c) 2005-2010 kuwata-lab all rights reserved.
 
 
 
@@ -23,14 +23,14 @@ If you have installed RubyGems, just type 'gem install kwalify'
    
 Else if you can be root user, use 'setup.rb' as following:
 
-  $ tar xjf kwalify-0.7.1.tar.bz2
-  $ cd kwalify-0.7.1/
+  $ tar xjf kwalify-0.7.2.tar.bz2
+  $ cd kwalify-0.7.2/
   $ sudo ruby setup.rb install
 
 Else copy script and libraries to proper directory.
 
-  $ tar xjf kwalify-0.7.1.tar.bz2
-  $ cd kwalify-0.7.1/
+  $ tar xjf kwalify-0.7.2.tar.bz2
+  $ cd kwalify-0.7.2/
   $ mkdir -p $HOME/bin
   $ cp -a bin/* $HOME/bin
   $ export PATH=$PATH:$HOME/bin
@@ -41,8 +41,8 @@ Else copy script and libraries to proper directory.
 (Optional) 'contrib/inline-require' script to concatenate all script
 and libraries into a file.
   
-  $ tar xjf kwalify-0.7.1.tar.bz2
-  $ cd kwalify-0.7.1/
+  $ tar xjf kwalify-0.7.2.tar.bz2
+  $ cd kwalify-0.7.2/
   $ unset RUBYLIB
   $ ruby contrib/inline-require -I ./lib bin/kwalify > contrib/kwalify
   $ chmod a+x contrib/kwalify
@@ -58,4 +58,4 @@ and libraries into a file.
 
 == Copyright
 
-   copyright(c) 2005-2008 kuwata-lab all rights reserved.
+   copyright(c) 2005-2010 kuwata-lab all rights reserved.

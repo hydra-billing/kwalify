@@ -158,7 +158,7 @@ ex.
             onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000023-source">
 <pre>
-<span class="ruby-comment cmt"># File kwalify/util.rb, line 117</span>
+<span class="ruby-comment cmt"># File kwalify/util.rb, line 118</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_hashtable</span>(<span class="ruby-identifier">hashlist</span>, <span class="ruby-identifier">primarykey</span>, <span class="ruby-identifier">flag_duplicate_check</span>=<span class="ruby-keyword kw">true</span>)
       <span class="ruby-identifier">hashtable</span> = {}
       <span class="ruby-identifier">hashlist</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span>
@@ -195,7 +195,7 @@ get class object. if not found, NameError raised.
             onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000022-source">
 <pre>
-<span class="ruby-comment cmt"># File kwalify/util.rb, line 93</span>
+<span class="ruby-comment cmt"># File kwalify/util.rb, line 94</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_class</span>(<span class="ruby-identifier">classname</span>)
       <span class="ruby-identifier">klass</span> = <span class="ruby-constant">Object</span>
       <span class="ruby-identifier">classname</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'::'</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
@@ -241,7 +241,7 @@ This is equal to the following:
             onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000024-source">
 <pre>
-<span class="ruby-comment cmt"># File kwalify/util.rb, line 146</span>
+<span class="ruby-comment cmt"># File kwalify/util.rb, line 147</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_value</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">path</span>)
       <span class="ruby-identifier">val</span> = <span class="ruby-identifier">obj</span>
       <span class="ruby-identifier">path</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
@@ -282,7 +282,7 @@ ex.
             onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000021-source">
 <pre>
-<span class="ruby-comment cmt"># File kwalify/util.rb, line 70</span>
+<span class="ruby-comment cmt"># File kwalify/util.rb, line 71</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">traverse_rule</span>(<span class="ruby-identifier">validator</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)  <span class="ruby-comment cmt">#:yield: rule</span>
       <span class="ruby-identifier">rule</span> = <span class="ruby-identifier">validator</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Rule</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">validator</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">validator</span>.<span class="ruby-identifier">rule</span>
       <span class="ruby-identifier">_done</span> = {}
@@ -314,7 +314,7 @@ ex.
   Kwalify::Util.traverse_schema(schema) do |rulehash|
     ## add module prefix to class name
     if rulehash['class']
-      rulehash['class'] = &quot;MyModule::' + rulehash['class']
+      rulehash['class'] = 'MyModule::' + rulehash['class']
     end
   end
 </pre>
@@ -322,7 +322,7 @@ ex.
             onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000020-source">
 <pre>
-<span class="ruby-comment cmt"># File kwalify/util.rb, line 43</span>
+<span class="ruby-comment cmt"># File kwalify/util.rb, line 44</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">traverse_schema</span>(<span class="ruby-identifier">schema</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)  <span class="ruby-comment cmt">#:yield: rulehash</span>
       <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">schema</span>
       <span class="ruby-identifier">_done</span> = {}
@@ -358,7 +358,8 @@ ex.
 <pre>
 <span class="ruby-comment cmt"># File kwalify/util.rb, line 19</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">untabify</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">width</span>=<span class="ruby-value">8</span>)
-      <span class="ruby-identifier">list</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\t/</span>)
+      <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">str</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">list</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\t/</span>, <span class="ruby-value">-1</span>)   <span class="ruby-comment cmt"># if 2nd arg is negative then split() doesn't remove tailing empty strings</span>
       <span class="ruby-identifier">last</span> = <span class="ruby-identifier">list</span>.<span class="ruby-identifier">pop</span>
       <span class="ruby-identifier">sb</span> = <span class="ruby-value str">''</span>
       <span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>

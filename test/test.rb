@@ -1,7 +1,7 @@
 ###
-### $Rev: 90 $
-### $Release: 0.7.1 $
-### copyright(c) 2005-2008 kuwata-lab all rights reserved.
+### $Rev$
+### $Release: 0.7.2 $
+### copyright(c) 2005-2010 kuwata-lab all rights reserved.
 ###
 
 unless defined?(TESTDIR)
@@ -50,6 +50,7 @@ if $0 == __FILE__
   require 'test-main.rb'
   require 'test-action.rb'
   require 'test-users-guide.rb'
+  require 'test-util.rb'
 
   #suite = Test::Unit::TestSuite.new()
   #suite << ValidatorTest.suite()
