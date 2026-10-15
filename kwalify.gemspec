@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'kwalify'
-  s.version     = '0.7.2'
+  s.version     = '0.7.2.1'
   s.authors     = ['makoto kuwata']
   s.homepage    = 'https://github.com/hydra-billing/kwalify'
   s.license     = 'MIT'
